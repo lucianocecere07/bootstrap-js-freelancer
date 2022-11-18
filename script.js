@@ -17,12 +17,6 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 //codici promozionali in un array
 arrayCodici = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
-// !! DICHIARARE la variabile(??) ---> let codiceSconto = ""; !!
-for(let i = 0; i < arrayCodici.length; i++){
-    codiceSconto = arrayCodici[i]; //---> !! operatore += (errore) !!
-};
-
-
 
 //--------------------------------------------//
 
@@ -31,14 +25,14 @@ for(let i = 0; i < arrayCodici.length; i++){
 //-------------------funzioni-------------------//
 
 //funzione per click del bottone
-
 function clickSend(event) {
     event.preventDefault();
 
     let tipoDiLavoro = document.getElementById("inputWork").value;
     let numeroOre = parseInt(document.getElementById("inputHours").value);
-    let inputCodice = document.getElementById("inputCode").value;
+    let inputCodice = (document.getElementById("inputCode").value).toUpperCase();
 
+    //tipo di lavoro
     if(tipoDiLavoro == 1){
         prezzoOre = (numeroOre * 20.50).toFixed(2);
     }else if(tipoDiLavoro == 2){
@@ -47,25 +41,34 @@ function clickSend(event) {
         prezzoOre = (numeroOre * 33.60).toFixed(2);
     };
 
-    // !! if di CODICE SCONTO NON FUNZIONA !!
-    if(inputCodice == codiceSconto){
+    //codice sconto
+    let codiceInseritoUtente = codiceInArray(arrayCodici, inputCodice);
+
+    if(codiceInseritoUtente){
         prezzoOre = (prezzoOre * 0.75).toFixed(2);
     } else {
         alert("Discont Code non valido o mancante. Calcolo tariffa prezzo pieno.");
         prezzoOre = prezzoOre;
     };
- 
+
+    //stampa su pagina e console
     console.log("Il prezzo finale del lavoro è di: " + prezzoOre + " € ");
     document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: <b>" + prezzoOre + " € </b>";
 
 };
 
-//-------------------------------------------------------//
+//funzione se il codice inserito è presente nell'array
+function codiceInArray(){
+    inputCodice = (document.getElementById("inputCode").value).toUpperCase();
+    for(let i = 0; i < arrayCodici.length; i++){
+        if(inputCodice == arrayCodici[i]){
+            return true;
+        }
+    }
+    return false;
+}
 
-
-
-
-
+//-------------------------------------//
 
 
 
