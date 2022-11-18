@@ -12,11 +12,14 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 //------------------esercizio----------------------//
 
 //bottone send al click
+//funzione al click
 
+//codici promozionali in un array
+arrayCodici = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
-//stampa al click del bottone totale
-let totale = document.getElementById("totale");
-totale.addEventListener('click', prezzoPerOre);
+for(let i = 0; i < arrayCodici.length; i++){
+    codiceSconto = arrayCodici[i];
+};
 
 
 
@@ -25,18 +28,99 @@ totale.addEventListener('click', prezzoPerOre);
 
 
 //-------------------funzioni-------------------//
-/*
+
 //funzione per click del bottone
-function clickBottone(event){
+
+
+function clickSend(event) {
     event.preventDefault();
+
+    let tipoDiLavoro = document.getElementById("inputWork").value;
+    let numeroOre = parseInt(document.getElementById("inputHours").value);
+    let inputCodice = document.getElementById("inputCode").value;
+
     if(tipoDiLavoro == 1){
-        console.log("il lavoro backend è di: " + prezzoOreBackend + " € ");
+        prezzoOre = (numeroOre * 20.50).toFixed(2);
     }else if(tipoDiLavoro == 2){
-        console.log("il lavoro frontend è di: " + prezzoOreFrontend + " € ");
+        prezzoOre = (numeroOre * 15.30).toFixed(2);
     }else if(tipoDiLavoro == 3){
-        console.log("il lavoro project è di: " + prezzoOreProject + " € ");
+        prezzoOre = (numeroOre * 33.60).toFixed(2);
     };
-};*/
+
+    // !! if di CODICE SCONTO NON FUNZIONA !!
+    if(inputCodice == codiceSconto){
+        prezzoOre = (prezzoOre * 0.75).toFixed(2);
+    } else {
+        alert("Discont Code non valido o mancante. Calcolo tariffa prezzo pieno.")
+        prezzoOre = prezzoOre;
+    };
+ 
+    console.log("Il prezzo finale del lavoro è di: " + prezzoOre + " € ");
+    document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: <b>" + prezzoOre + " € </b>";
+
+};
+
+//-------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------PROVE-----------------------//
+
+
+
+
+/*
+function clickSend(event) {
+    event.preventDefault();
+
+    let tipoDiLavoro = document.getElementById("inputWork").value;
+    let numeroOre = parseInt(document.getElementById("inputHours").value);
+
+    let prezzoOreBackend = (numeroOre * 20.50).toFixed(2);
+    let prezzoOreFrontend = (numeroOre * 15.30).toFixed(2);
+    let prezzoOreProject = (numeroOre * 33.60).toFixed(2);
+
+    if(tipoDiLavoro == 1){
+        console.log("Il prezzo finale del lavoro backend è di: " + prezzoOreBackend + " € ");
+        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreBackend + " € ";
+    }else if(tipoDiLavoro == 2){
+        console.log("Il prezzo finale del lavoro frontend è di: " + prezzoOreFrontend + " € ");
+        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreFrontend + " € ";
+    }else if(tipoDiLavoro == 3){
+        console.log("Il prezzo finale del lavoro project analisys è di: " + prezzoOreProject + " € ");
+        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreProject + " € ";
+    };
+};
+*/
+
+/*
+
+//stampa al click del bottone totale
+let totale = document.getElementById("totale");
+totale.addEventListener('click', prezzoPerOre);
+
 
 //funzione per bottone totale
 
@@ -60,5 +144,5 @@ function prezzoPerOre() {
         document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreProject + " € ";
     };
 };
-
+*/
 //---------------------------------------------------//
