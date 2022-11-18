@@ -100,45 +100,46 @@
 
       <div class="container-fluid bg-info py-4 px-5">
         <h1 class="form text-center">WANT AN OFFER?</h1>
-        <form class="row g-3">
+        <form class="row g-3" onsubmit="clickBottone(event)">
           <div class="col-12 col-md-6">
             <label for="inputName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Enter your first name..." value="Giorgio">
+            <input type="text" class="form-control" id="inputName" placeholder="Enter your first name...">
           </div>
           <div class="col-12 col-md-6">
             <label for="inputLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName" placeholder="Enter your last name..." value="Galli">
+            <input type="text" class="form-control" id="inputLastName" placeholder="Enter your last name...">
           </div>
           <div class="col-12 col-md-6">
             <label for="inputEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" value="giorgiogalli@gmail.com">
+            <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
           </div>
           <div class="col-12 col-md-6">
             <label for="inputHours" class="form-label">Hours requested</label>
-            <input type="text" class="form-control" id="inputHours" placeholder="Hours requested..." value="10">
+            <input type="text" class="form-control" id="inputHours" placeholder="Hours requested...">
           </div>
           <div class="col-12 col-md-6">
             <label for="inputWork" class="form-label">Type of work</label>
             <select id="inputWork" class="form-select">
               <option selected>Select the type of work</option>
-              <option>Backend Development</option>
-              <option>Frontend Development</option>
-              <option>Project Analisys</option>
+              <option value="1">Backend Development</option>
+              <option value="2">Frontend Development</option>
+              <option value="3">Project Analisys</option>
             </select>
           </div>
           <div class="col-12 col-md-6">
             <label for="inputCode" class="form-label">Discount Code</label>
-            <input type="text" class="form-control" id="inputCode" value="YHDNU32">
+            <input type="text" class="form-control" id="inputCode">
           </div>
           <div class="col-12">
             <label for="inputMessage" class="form-label">Message</label>
-            <input type="text" class="form-control" id="inputMessage" value="Vorrei commissionare uno sviluppo backend" placeholder="Specify your work commission..." style="height: 150px">
+            <input type="text" class="form-control" id="inputMessage" placeholder="Specify your work commission..." style="height: 150px">
           </div>
           <div class="col-12 text-center">
             <button type="submit" class="btn btn-warning">Send</button>
+            <button id="totale" type="button" class="btn btn-warning">Totale</button>
           </div>
         </form>
-        <h3>Il prezzo finale è di: 153.75</h3>
+        <label id="prezzo-totale" class="form-control">Il prezzo finale è di:</label>
       </div>
     </main>
   
