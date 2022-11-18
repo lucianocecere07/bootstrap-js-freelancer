@@ -12,13 +12,14 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 //------------------esercizio----------------------//
 
 //bottone send al click
-//funzione al click
+//funzione "clickSend" al click
 
 //codici promozionali in un array
 arrayCodici = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
+// !! DICHIARARE la variabile(??) ---> let codiceSconto = ""; !!
 for(let i = 0; i < arrayCodici.length; i++){
-    codiceSconto = arrayCodici[i];
+    codiceSconto = arrayCodici[i]; //---> !! operatore += (errore) !!
 };
 
 
@@ -30,7 +31,6 @@ for(let i = 0; i < arrayCodici.length; i++){
 //-------------------funzioni-------------------//
 
 //funzione per click del bottone
-
 
 function clickSend(event) {
     event.preventDefault();
@@ -51,7 +51,7 @@ function clickSend(event) {
     if(inputCodice == codiceSconto){
         prezzoOre = (prezzoOre * 0.75).toFixed(2);
     } else {
-        alert("Discont Code non valido o mancante. Calcolo tariffa prezzo pieno.")
+        alert("Discont Code non valido o mancante. Calcolo tariffa prezzo pieno.");
         prezzoOre = prezzoOre;
     };
  
