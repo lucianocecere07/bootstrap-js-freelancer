@@ -33,18 +33,18 @@ function clickSend(event) {
     let inputCodice = (document.getElementById("inputCode").value).toUpperCase();
 
     //tipo di lavoro
-    if(tipoDiLavoro == 1){
+    if (tipoDiLavoro == 1) {
         prezzoOre = (numeroOre * 20.50).toFixed(2);
-    }else if(tipoDiLavoro == 2){
+    } else if (tipoDiLavoro == 2) {
         prezzoOre = (numeroOre * 15.30).toFixed(2);
-    }else if(tipoDiLavoro == 3){
+    } else if (tipoDiLavoro == 3) {
         prezzoOre = (numeroOre * 33.60).toFixed(2);
     };
 
     //codice sconto
     let codiceInseritoUtente = codiceInArray(arrayCodici, inputCodice);
 
-    if(codiceInseritoUtente){
+    if (codiceInseritoUtente) {
         prezzoOre = (prezzoOre * 0.75).toFixed(2);
     } else {
         alert("Discont Code non valido o mancante. Calcolo tariffa prezzo pieno.");
@@ -58,10 +58,10 @@ function clickSend(event) {
 };
 
 //funzione se il codice inserito è presente nell'array
-function codiceInArray(){
+function codiceInArray() {
     inputCodice = (document.getElementById("inputCode").value).toUpperCase();
-    for(let i = 0; i < arrayCodici.length; i++){
-        if(inputCodice == arrayCodici[i]){
+    for (let i = 0; i < arrayCodici.length; i++) {
+        if (inputCodice == arrayCodici[i]) {
             return true;
         }
     }
@@ -69,83 +69,3 @@ function codiceInArray(){
 }
 
 //-------------------------------------//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------------------PROVE-----------------------//
-
-
-
-
-/*
-function clickSend(event) {
-    event.preventDefault();
-
-    let tipoDiLavoro = document.getElementById("inputWork").value;
-    let numeroOre = parseInt(document.getElementById("inputHours").value);
-
-    let prezzoOreBackend = (numeroOre * 20.50).toFixed(2);
-    let prezzoOreFrontend = (numeroOre * 15.30).toFixed(2);
-    let prezzoOreProject = (numeroOre * 33.60).toFixed(2);
-
-    if(tipoDiLavoro == 1){
-        console.log("Il prezzo finale del lavoro backend è di: " + prezzoOreBackend + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreBackend + " € ";
-    }else if(tipoDiLavoro == 2){
-        console.log("Il prezzo finale del lavoro frontend è di: " + prezzoOreFrontend + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreFrontend + " € ";
-    }else if(tipoDiLavoro == 3){
-        console.log("Il prezzo finale del lavoro project analisys è di: " + prezzoOreProject + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreProject + " € ";
-    };
-};
-*/
-
-/*
-
-//stampa al click del bottone totale
-let totale = document.getElementById("totale");
-totale.addEventListener('click', prezzoPerOre);
-
-
-//funzione per bottone totale
-
-function prezzoPerOre() {
-
-    let tipoDiLavoro = document.getElementById("inputWork").value;
-    let numeroOre = parseInt(document.getElementById("inputHours").value);
-
-    let prezzoOreBackend = (numeroOre * 20.50).toFixed(2);
-    let prezzoOreFrontend = (numeroOre * 15.30).toFixed(2);
-    let prezzoOreProject = (numeroOre * 33.60).toFixed(2);
-
-    if(tipoDiLavoro == 1){
-        console.log("Il prezzo finale del lavoro backend è di: " + prezzoOreBackend + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreBackend + " € ";
-    }else if(tipoDiLavoro == 2){
-        console.log("Il prezzo finale del lavoro frontend è di: " + prezzoOreFrontend + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreFrontend + " € ";
-    }else if(tipoDiLavoro == 3){
-        console.log("Il prezzo finale del lavoro project è di: " + prezzoOreProject + " € ");
-        document.getElementById("prezzo-totale").innerHTML = "Il prezzo finale è di: " + prezzoOreProject + " € ";
-    };
-};
-*/
-//---------------------------------------------------//
